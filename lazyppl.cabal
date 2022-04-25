@@ -1,11 +1,11 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.34.4.
+-- This file has been generated from package.yaml by hpack version 0.34.7.
 --
 -- see: https://github.com/sol/hpack
 
 name:           lazyppl
-version:        0.1.0.0
+version:        0.2.0.0
 description:    Please see the README on GitHub at <https://github.com/githubuser/lazyppl#readme>
 author:         Sam Staton and others
 maintainer:     sam.staton@cs.ox.ac.uk
@@ -19,36 +19,47 @@ extra-source-files:
 
 library
   exposed-modules:
-      Clustering
+      AdditiveClustering
+      AdditiveClusteringDemo
+      ClusteringDemo
+      ControlFlowDemo
       Distr
       Distr.Counter
       Distr.DirichletP
       Distr.IBP
+      Distr.Memoization
       Distr.Mondrian
-      IBP
+      Index
+      IrmDemo
+      IrmTest
       LazyPPL
-      ProgramInduction
-      Regression
-      Wiener
+      MondrianExample
+      ProgramInductionDemo
+      RegressionDemo
+      WienerDemo
   other-modules:
       Paths_lazyppl
   hs-source-dirs:
       src
   build-depends:
-      Chart
-    , Chart-diagrams
-    , Histogram
+      Histogram
+    , aeson
+    , array
     , base >=4.7 && <5
     , bytestring
     , cassava
     , colour
     , containers
     , data-default-class
+    , deepseq
     , gamma
+    , ghc-heap
     , lazyio
     , lens
     , log-domain
+    , matplotlib
     , monad-extras
+    , monad-loops
     , mtl
     , random
     , spoon
@@ -58,38 +69,102 @@ library
   default-language: Haskell2010
 
 executable clustering-exe
-  main-is: Clustering.hs
+  main-is: ClusteringDemo.lhs
   other-modules:
+      AdditiveClustering
+      AdditiveClusteringDemo
+      ControlFlowDemo
       Distr
       Distr.Counter
       Distr.DirichletP
       Distr.IBP
+      Distr.Memoization
       Distr.Mondrian
-      IBP
+      Index
+      IrmDemo
+      IrmTest
       LazyPPL
-      ProgramInduction
-      Regression
-      Wiener
+      MondrianExample
+      ProgramInductionDemo
+      RegressionDemo
+      WienerDemo
       Paths_lazyppl
   hs-source-dirs:
       src
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N -main-is Clustering
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -main-is ClusteringDemo
   build-depends:
-      Chart
-    , Chart-diagrams
-    , Histogram
+      Histogram
+    , aeson
+    , array
     , base >=4.7 && <5
     , bytestring
     , cassava
     , colour
     , containers
     , data-default-class
+    , deepseq
     , gamma
+    , ghc-heap
     , lazyio
     , lazyppl
     , lens
     , log-domain
+    , matplotlib
     , monad-extras
+    , monad-loops
+    , mtl
+    , random
+    , spoon
+    , statistics
+    , transformers
+    , vector
+  default-language: Haskell2010
+
+executable codedmessage-exe
+  main-is: CodedMessage.hs
+  other-modules:
+      AdditiveClustering
+      AdditiveClusteringDemo
+      ClusteringDemo
+      ControlFlowDemo
+      Distr
+      Distr.Counter
+      Distr.DirichletP
+      Distr.IBP
+      Distr.Memoization
+      Distr.Mondrian
+      Index
+      IrmDemo
+      IrmTest
+      LazyPPL
+      MondrianExample
+      ProgramInductionDemo
+      RegressionDemo
+      WienerDemo
+      Paths_lazyppl
+  hs-source-dirs:
+      src
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -main-is CodedMessage
+  build-depends:
+      Histogram
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , cassava
+    , colour
+    , containers
+    , data-default-class
+    , deepseq
+    , gamma
+    , ghc-heap
+    , lazyio
+    , lazyppl
+    , lens
+    , log-domain
+    , matplotlib
+    , monad-extras
+    , monad-loops
     , mtl
     , random
     , spoon
@@ -99,38 +174,101 @@ executable clustering-exe
   default-language: Haskell2010
 
 executable ibp-exe
-  main-is: IBP.hs
+  main-is: AdditiveClustering.hs
   other-modules:
-      Clustering
+      AdditiveClusteringDemo
+      ClusteringDemo
+      ControlFlowDemo
       Distr
       Distr.Counter
       Distr.DirichletP
       Distr.IBP
+      Distr.Memoization
       Distr.Mondrian
+      Index
+      IrmDemo
+      IrmTest
       LazyPPL
-      ProgramInduction
-      Regression
-      Wiener
+      MondrianExample
+      ProgramInductionDemo
+      RegressionDemo
+      WienerDemo
       Paths_lazyppl
   hs-source-dirs:
       src
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N -main-is IBP
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -main-is AdditiveClustering
   build-depends:
-      Chart
-    , Chart-diagrams
-    , Histogram
+      Histogram
+    , aeson
+    , array
     , base >=4.7 && <5
     , bytestring
     , cassava
     , colour
     , containers
     , data-default-class
+    , deepseq
     , gamma
+    , ghc-heap
     , lazyio
     , lazyppl
     , lens
     , log-domain
+    , matplotlib
     , monad-extras
+    , monad-loops
+    , mtl
+    , random
+    , spoon
+    , statistics
+    , transformers
+    , vector
+  default-language: Haskell2010
+
+executable mondrian-exe
+  main-is: MondrianExample.hs
+  other-modules:
+      AdditiveClustering
+      AdditiveClusteringDemo
+      ClusteringDemo
+      ControlFlowDemo
+      Distr
+      Distr.Counter
+      Distr.DirichletP
+      Distr.IBP
+      Distr.Memoization
+      Distr.Mondrian
+      Index
+      IrmDemo
+      IrmTest
+      LazyPPL
+      ProgramInductionDemo
+      RegressionDemo
+      WienerDemo
+      Paths_lazyppl
+  hs-source-dirs:
+      src
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -main-is MondrianExample
+  build-depends:
+      Histogram
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , cassava
+    , colour
+    , containers
+    , data-default-class
+    , deepseq
+    , gamma
+    , ghc-heap
+    , lazyio
+    , lazyppl
+    , lens
+    , log-domain
+    , matplotlib
+    , monad-extras
+    , monad-loops
     , mtl
     , random
     , spoon
@@ -140,38 +278,49 @@ executable ibp-exe
   default-language: Haskell2010
 
 executable programinduction-exe
-  main-is: ProgramInduction.hs
+  main-is: ProgramInductionDemo.lhs
   other-modules:
-      Clustering
+      AdditiveClustering
+      AdditiveClusteringDemo
+      ClusteringDemo
+      ControlFlowDemo
       Distr
       Distr.Counter
       Distr.DirichletP
       Distr.IBP
+      Distr.Memoization
       Distr.Mondrian
-      IBP
+      Index
+      IrmDemo
+      IrmTest
       LazyPPL
-      Regression
-      Wiener
+      MondrianExample
+      RegressionDemo
+      WienerDemo
       Paths_lazyppl
   hs-source-dirs:
       src
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N -main-is ProgramInduction
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -main-is ProgramInductionDemo
   build-depends:
-      Chart
-    , Chart-diagrams
-    , Histogram
+      Histogram
+    , aeson
+    , array
     , base >=4.7 && <5
     , bytestring
     , cassava
     , colour
     , containers
     , data-default-class
+    , deepseq
     , gamma
+    , ghc-heap
     , lazyio
     , lazyppl
     , lens
     , log-domain
+    , matplotlib
     , monad-extras
+    , monad-loops
     , mtl
     , random
     , spoon
@@ -181,38 +330,49 @@ executable programinduction-exe
   default-language: Haskell2010
 
 executable regression-exe
-  main-is: Regression.hs
+  main-is: RegressionDemo.lhs
   other-modules:
-      Clustering
+      AdditiveClustering
+      AdditiveClusteringDemo
+      ClusteringDemo
+      ControlFlowDemo
       Distr
       Distr.Counter
       Distr.DirichletP
       Distr.IBP
+      Distr.Memoization
       Distr.Mondrian
-      IBP
+      Index
+      IrmDemo
+      IrmTest
       LazyPPL
-      ProgramInduction
-      Wiener
+      MondrianExample
+      ProgramInductionDemo
+      WienerDemo
       Paths_lazyppl
   hs-source-dirs:
       src
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N -main-is Regression
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -main-is RegressionDemo
   build-depends:
-      Chart
-    , Chart-diagrams
-    , Histogram
+      Histogram
+    , aeson
+    , array
     , base >=4.7 && <5
     , bytestring
     , cassava
     , colour
     , containers
     , data-default-class
+    , deepseq
     , gamma
+    , ghc-heap
     , lazyio
     , lazyppl
     , lens
     , log-domain
+    , matplotlib
     , monad-extras
+    , monad-loops
     , mtl
     , random
     , spoon
@@ -222,38 +382,49 @@ executable regression-exe
   default-language: Haskell2010
 
 executable wiener-exe
-  main-is: Wiener.hs
+  main-is: WienerDemo.lhs
   other-modules:
-      Clustering
+      AdditiveClustering
+      AdditiveClusteringDemo
+      ClusteringDemo
+      ControlFlowDemo
       Distr
       Distr.Counter
       Distr.DirichletP
       Distr.IBP
+      Distr.Memoization
       Distr.Mondrian
-      IBP
+      Index
+      IrmDemo
+      IrmTest
       LazyPPL
-      ProgramInduction
-      Regression
+      MondrianExample
+      ProgramInductionDemo
+      RegressionDemo
       Paths_lazyppl
   hs-source-dirs:
       src
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N -main-is Wiener
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -main-is WienerDemo
   build-depends:
-      Chart
-    , Chart-diagrams
-    , Histogram
+      Histogram
+    , aeson
+    , array
     , base >=4.7 && <5
     , bytestring
     , cassava
     , colour
     , containers
     , data-default-class
+    , deepseq
     , gamma
+    , ghc-heap
     , lazyio
     , lazyppl
     , lens
     , log-domain
+    , matplotlib
     , monad-extras
+    , monad-loops
     , mtl
     , random
     , spoon

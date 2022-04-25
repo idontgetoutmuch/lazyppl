@@ -29,6 +29,7 @@ let
     base bytestring cassava Chart Chart-diagrams colour containers
     data-default-class gamma Histogram lazyio lens log-domain
     monad-extras mtl random spoon statistics transformers vector
+    matplotlib monad-loops
   ];
 
 in
@@ -37,6 +38,7 @@ nixpkgs.stdenv.mkDerivation {
   name = "env";
   buildInputs = [
     nixpkgs.cabal-install
+    nixpkgs.stack
     (nixpkgs.myHaskellPackages.ghcWithPackages haskellDeps)
   ];
 }
